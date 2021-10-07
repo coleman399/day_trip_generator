@@ -1,12 +1,13 @@
 import random
-
+# lists
 destination_list = ['gilbert', 'mesa', 'tempe']
 restaurant_list = ['taco bell', 'hungry howies', 'jimmy johns']
 transportation_list = ['car', 'bus', 'bike']
 entertainment_list = ['movies', 'concert', 'zoo']
-
-user_input = input("would you like this program to randomaly generate a day trip for you? (y/n) ").lower()
-
+storage_list = []
+# user_input
+user_input = input("would you like this program to randomly generate a day trip for you? (y/n) ").lower()
+# generate a random trip
 def day_trip_generator(string):
     while True:
         if string == 'y':
@@ -23,9 +24,8 @@ def day_trip_generator(string):
             break
         else:
             string = input("please use y or n to make a selection: ")
-       
 day_trip_generator(user_input)
-
+# make sure user is satisfied with trip
 while True:
     user_input = input("would you like a different day trip? (y/n) ").lower()
     if user_input == 'y':
@@ -36,4 +36,18 @@ while True:
     else:
         print("please use y or n to make a selction.")
 
+def random_element_from_list(list):
+    list_index = random.randint(0, len(list)-1)
+    return list_index
 
+print(destination_list[random_element_from_list(destination_list)])
+
+user_input = input("How statisfied are you with the trip? ")
+
+def review_storage(string):
+    storage_list = [string]
+    return storage_list
+
+storage_list.append(review_storage(user_input))
+
+print(f" CURRENT REVIEWS\n{storage_list}")
